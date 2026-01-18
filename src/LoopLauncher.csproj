@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>LoopLauncher</AssemblyName>
+    <RootNamespace>LoopLauncher</RootNamespace>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    
+    <!-- Version info -->
+    <Version>1.0.6</Version>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <FileVersion>1.0.6.0</FileVersion>
+    
+    <!-- Company info - helps reduce AV false positives -->
+    <Company>AlgoApi</Company>
+    <Product>LoopLauncher</Product>
+    <Copyright>Copyright © 2026 AlgoApi. MIT License.</Copyright>
+    <Description>Unofficial launcher for Hytale game. Open source project.</Description>
+    <Authors>AlgoApi</Authors>
+    
+    <!-- Additional metadata -->
+    <PackageProjectUrl>https://github.com/AlgoApi/LoopLauncher</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AlgoApi/LoopLauncher</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    
+    <!-- Optimization settings that may help with AV -->
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Deterministic>true</Deterministic>
+    
+    <!-- Disable trimming which can cause AV issues -->
+    <PublishTrimmed>false</PublishTrimmed>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessageBox.Avalonia" Version="3.3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!-- Базовая библиотека Avalonia -->
+    <PackageReference Include="Avalonia" Version="11.3.11" />
+    <!-- Десктопный хост (автоматически подбирает платформу) -->
+    <PackageReference Include="Avalonia.Desktop" Version="11.*" />
+
+    <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="0.10.*" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Fonts\**" />
+  </ItemGroup>
+
+</Project>

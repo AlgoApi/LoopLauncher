@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Color x:Key="PrimaryColor">#0d1117</Color>
+    <Color x:Key="SecondaryColor">#161b22</Color>
+    <Color x:Key="AccentColor">#2ea043</Color>
+    <Color x:Key="AccentHoverColor">#3fb950</Color>
+    <Color x:Key="AccentDarkColor">#238636</Color>
+    <Color x:Key="TextColor">#e6edf3</Color>
+    <Color x:Key="TextSecondaryColor">#8b949e</Color>
+    <Color x:Key="BorderColor">#30363d</Color>
+    <Color x:Key="InputBackgroundColor">#0d1117</Color>
+    <Color x:Key="CardBackgroundColor">#161b22</Color>
+    
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource AccentHoverColor}"/>
+    <SolidColorBrush x:Key="AccentDarkBrush" Color="{StaticResource AccentDarkColor}"/>
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="InputBackgroundBrush" Color="{StaticResource InputBackgroundColor}"/>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="{StaticResource CardBackgroundColor}"/>
+    
+    <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Color="#0d1117" Offset="0"/>
+        <GradientStop Color="#161b22" Offset="0.5"/>
+        <GradientStop Color="#1c2128" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="AccentGradient" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Color="#2ea043" Offset="0"/>
+        <GradientStop Color="#238636" Offset="1"/>
+    </LinearGradientBrush>
+    
+</ResourceDictionary>
