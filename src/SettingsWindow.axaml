@@ -36,7 +36,7 @@
                      VerticalAlignment="Center"
                      Margin="18,0,0,0"/>
           <Button Content="✕"
-                  Style="{StaticResource CloseButton}"
+                  Theme="{StaticResource CloseButton}"
                   HorizontalAlignment="Right"
                   Click="CloseButton_Click"/>
         </Grid>
@@ -62,7 +62,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBox x:Name="GameDirTextBox"
-                     Style="{StaticResource ModernTextBox}"
+                     Theme="{StaticResource ModernTextBox}"
                      IsReadOnly="True"
                      FontSize="12"
                      Padding="12,10"/>
@@ -71,7 +71,7 @@
                     Content="..."
                     Width="44"
                     Margin="10,0,0,0"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     FontSize="14"
                     Padding="0,10"
                     Click="BrowseButton_Click"/>
@@ -110,7 +110,7 @@
                      Margin="0,4,0,8"/>
           <StackPanel Orientation="Horizontal" Spacing="8">
             <Button x:Name="RussifierBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="{StaticResource CardBackgroundBrush}"
                     Padding="14,8"
                     FontSize="12"
@@ -122,7 +122,7 @@
             </Button>
 
             <Button x:Name="RussifierRestoreBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="#3d2020"
                     Padding="10,8"
                     FontSize="12"
@@ -149,7 +149,7 @@
                      Margin="0,0,0,8"/>
           <StackPanel Orientation="Horizontal" Spacing="8">
             <Button x:Name="OnlineFixBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="{StaticResource CardBackgroundBrush}"
                     Padding="14,8"
                     FontSize="12"
@@ -161,7 +161,7 @@
             </Button>
 
             <Button x:Name="OnlineFixRestoreBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="#3d2020"
                     Padding="10,8"
                     FontSize="12"
@@ -208,7 +208,7 @@
                      Foreground="{StaticResource TextSecondaryBrush}"
                      Margin="0,0,0,8"/>
           <ComboBox x:Name="FontComboBox"
-                    Style="{StaticResource ModernComboBox}"
+                    Theme="{StaticResource ModernComboBox}"
                     FontSize="12"
                     Padding="12,10"
                     Width="280"
@@ -241,7 +241,7 @@
                      TextWrapping="Wrap"
                      Margin="24,0,0,8"/>
           <Button x:Name="OpenLogsBtn"
-                  Style="{StaticResource ModernButton}"
+                  Theme="{StaticResource ModernButton}"
                   Background="{StaticResource CardBackgroundBrush}"
                   Padding="14,8"
                   FontSize="12"
@@ -262,7 +262,7 @@
                      Foreground="{StaticResource TextSecondaryBrush}"
                      Margin="0,0,0,8"/>
           <Button x:Name="AdvancedBtn"
-                  Style="{StaticResource ModernButton}"
+                  Theme="{StaticResource ModernButton}"
                   Background="{StaticResource CardBackgroundBrush}"
                   Padding="14,8"
                   FontSize="12"
@@ -290,14 +290,14 @@
                   Spacing="10">
         <Button x:Name="CancelBtn"
                 Content="Cancel"
-                Style="{StaticResource ModernButton}"
+                Theme="{StaticResource ModernButton}"
                 Background="{StaticResource CardBackgroundBrush}"
                 Padding="20,10"
                 FontSize="12"
                 Click="CancelButton_Click"/>
         <Button x:Name="SaveBtn"
                 Content="Save"
-                Style="{StaticResource ModernButton}"
+                Theme="{StaticResource ModernButton}"
                 Padding="24,10"
                 FontSize="12"
                 Click="SaveButton_Click"/>

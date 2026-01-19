@@ -1,0 +1,139 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="ModernTextBoxTemplate" TargetType="TextBox">
+        <Border x:Name="PART_Border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="6"
+                MinWidth="{TemplateBinding MinWidth}"
+                MinHeight="{TemplateBinding MinHeight}">
+            <Panel>
+                <TextBlock x:Name="PART_Watermark"
+                           Text="{TemplateBinding Watermark}"
+                           IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                           Margin="{TemplateBinding Padding}"
+                           Opacity="0.5"/>
+                <ScrollViewer Margin="{TemplateBinding Padding}"
+                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <TextPresenter x:Name="PART_TextPresenter"
+                                   Text="{TemplateBinding Text, Mode=TwoWay}"
+                                   CaretBrush="{TemplateBinding CaretBrush}"
+                                   SelectionBrush="{TemplateBinding SelectionBrush}"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                </ScrollViewer>
+            </Panel>
+        </Border>
+    </ControlTemplate>
+
+    <Style Selector="TextBox.Modern">
+        <Setter Property="Background" Value="{StaticResource InputBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="8,5"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="CaretBrush" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template" Value="{StaticResource ModernTextBoxTemplate}"/>
+    </Style>
+
+    <Style Selector="TextBox.Modern:pointerover /template/ Border#PART_Border">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentDarkBrush}"/>
+    </Style>
+    <Style Selector="TextBox.Modern:focus /template/ Border#PART_Border">
+        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+    </Style>
+
+    <Style Selector="Button.Modern">
+        <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="20,12"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Padding="{TemplateBinding Padding}"
+                                  CornerRadius="6"
+                                  HorizontalContentAlignment="Center"
+                                  VerticalContentAlignment="Center" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button.Modern:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource AccentHoverBrush}"/>
+    </Style>
+    <Style Selector="Button.Modern:pressed /template/ ContentPresenter">
+        <Setter Property="Opacity" Value="0.8"/>
+    </Style>
+    <Style Selector="Button.Modern:disabled">
+        <Setter Property="Opacity" Value="0.5"/>
+    </Style>
+
+    <Style Selector="ProgressBar.Modern">
+        <Setter Property="Background" Value="#21262d"/>
+        <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="Height" Value="4"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="ProgressBarRoot" 
+                        Background="{TemplateBinding Background}" 
+                        CornerRadius="2">
+                    <Panel x:Name="PART_Track">
+                        <Border x:Name="PART_Indicator"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="2"
+                                HorizontalAlignment="Left"/>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button.WindowControl">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  Background="{TemplateBinding Background}"
+                                  Content="{TemplateBinding Content}"
+                                  HorizontalContentAlignment="Center"
+                                  VerticalContentAlignment="Center" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button.WindowControl:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#15ffffff"/>
+    </Style>
+
+    <Style Selector="Button.Close:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#da3633"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    
+    <Style Selector="ScrollBar">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+    <Style Selector="ScrollBar /template/ Thumb">
+        <Setter Property="Background" Value="#3d444d"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+</ResourceDictionary>

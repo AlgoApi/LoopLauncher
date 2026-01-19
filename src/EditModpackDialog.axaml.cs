@@ -20,7 +20,7 @@ namespace LoopLauncher
         private readonly ObservableCollection<InstalledMod> _availableMods;
         
         public string? NewModpackName { get; private set; }
-        public new bool DialogResult { get; private set; }
+        public bool DialogResult { get; private set; }
         public bool ModsChanged { get; private set; }
 
         public EditModpackDialog(

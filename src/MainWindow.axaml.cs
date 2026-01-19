@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using Avalonia;
+using Avalonia.Media.Imaging;
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using Avalonia.Input;
@@ -26,6 +27,11 @@ namespace LoopLauncher
         private readonly UpdateService _updateService;
         private readonly ModpackService _modpackService;
         private List<GameVersion> _versions = new List<GameVersion>();
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
 
         public MainWindow(
             SettingsManager settingsobj,
@@ -77,11 +83,27 @@ namespace LoopLauncher
             _gameLauncher.StatusChanged += OnStatusChanged;
         }
 
+        private async Task LoadRemoteLogoAsync(string url)
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                var data = await httpClient.GetByteArrayAsync(url);
+                using var stream = new MemoryStream(data);
+                LogoImage.Source = new Bitmap(stream);
+            }
+            catch (Exception ex)
+            {
+                LogService.LogGame($"Не удалось загрузить логотип: {ex.Message}");
+            }
+        }
+
         protected override async void OnOpened(EventArgs e)
         {
             base.OnOpened(e);
             
             LogService.LogGameVerbose("MainWindow opened, starting initialization...");
+            await LoadRemoteLogoAsync("https://hytale.com/static/images/logo.png");
             await LoadVersionsAsync();
             await LoadNewsAsync();
             await CheckForUpdatesAsync();
@@ -567,7 +589,7 @@ namespace LoopLauncher
             StatusText.Text = _localization.Get("main.preparing");
         }
 
-        async private void Settings_Click(object sender, PointerReleasedEventArgs e)
+        async private void Settings_Click(object sender, PointerPressedEventArgs e)
         {
             var settingsWindow = (Application.Current as App)?.Services.GetRequiredService<SettingsWindow>();
 
@@ -592,7 +614,7 @@ namespace LoopLauncher
             }
         }
 
-        async private void Mods_Click(object sender, PointerReleasedEventArgs e)
+        async private void Mods_Click(object sender, PointerPressedEventArgs e)
         {
             var modsWindow = (Application.Current as App)?.Services.GetRequiredService<ModsWindow>();
 
@@ -634,7 +656,7 @@ namespace LoopLauncher
             _gameLauncher.SelectedModpackId = settings.SelectedModpackId;
         }
 
-        private void NewsItem_Click(object sender, PointerReleasedEventArgs e)
+        private void NewsItem_Click(object sender, PointerPressedEventArgs e)
         {
             if (sender is Button element && element.DataContext is NewsArticle article)
             {
@@ -650,7 +672,7 @@ namespace LoopLauncher
             }
         }
 
-        private void Store_Click(object sender, PointerReleasedEventArgs e)
+        private void Store_Click(object sender, PointerPressedEventArgs e)
         {
             try
             {
@@ -663,7 +685,7 @@ namespace LoopLauncher
             catch { }
         }
 
-        private void Website_Click(object sender, PointerReleasedEventArgs e)
+        private void Website_Click(object sender, PointerPressedEventArgs e)
         {
             try
             {
@@ -676,7 +698,7 @@ namespace LoopLauncher
             catch { }
         }
 
-        private void Discord_Click(object sender, PointerReleasedEventArgs e)
+        private void Discord_Click(object sender, PointerPressedEventArgs e)
         {
             try
             {

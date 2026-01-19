@@ -2,15 +2,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("LoopLauncher")]
-[assembly: AssemblyDescription("LoopLauncher — launcher application")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("AlgoApi")]
-[assembly: AssemblyProduct("LoopLauncher")]
-[assembly: AssemblyCopyright("© AlgoApi")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-
 [assembly: ComVisible(false)]
 
 // GUID (опционально — только если нужен COM)

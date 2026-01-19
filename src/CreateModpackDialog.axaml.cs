@@ -17,7 +17,7 @@ namespace LoopLauncher
         
         public string? ModpackName { get; private set; }
         public List<string> SelectedModPaths { get; private set; } = new();
-        public new bool DialogResult { get; private set; }
+        public bool DialogResult { get; private set; }
 
         public CreateModpackDialog(LocalizationService localization, List<InstalledMod> availableMods)
         {

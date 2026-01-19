@@ -1,6 +1,7 @@
 using System.IO;
 using System.Net.Http;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
 
 namespace LoopLauncher.Services
 {
@@ -89,6 +90,8 @@ namespace LoopLauncher.Services
         
         private bool CheckWebView2()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                return true;
             try
             {
                 // Check registry for WebView2
@@ -119,6 +122,9 @@ namespace LoopLauncher.Services
         
         private bool CheckVCRedist()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                return true;
+                
             try
             {
                 // Check for VC++ 2015-2022 Redistributable

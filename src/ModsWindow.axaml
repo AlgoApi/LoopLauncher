@@ -39,7 +39,7 @@
           </StackPanel>
 
           <Button Content="✕"
-                  Style="{StaticResource CloseButton}"
+                  Theme="{StaticResource CloseButton}"
                   HorizontalAlignment="Right"
                   Click="CloseButton_Click"/>
         </Grid>
@@ -93,7 +93,7 @@
 
                   <ComboBox x:Name="ModpackSelector"
                             Grid.Column="1"
-                            Style="{StaticResource ModernComboBox}"
+                            Theme="{StaticResource ModernComboBox}"
                             Height="26"
                             Padding="8,4"
                             FontSize="10"
@@ -114,7 +114,7 @@
                   <Button x:Name="CreateModpackBtn"
                           Content="+"
                           Width="26" Height="24"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Padding="0"
                           FontSize="14"
                           FontWeight="Bold"
@@ -124,7 +124,7 @@
                           Content="✏"
                           Width="26" Height="24"
                           Margin="4,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="#3d444d"
                           Padding="0"
                           FontSize="10"
@@ -135,7 +135,7 @@
                           Content="🗑"
                           Width="26" Height="24"
                           Margin="4,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="#cc3333"
                           Padding="0"
                           FontSize="10"
@@ -146,7 +146,7 @@
                   <Button x:Name="ExportModpackBtn"
                           Content="📤"
                           Width="26" Height="24"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="#3d444d"
                           Padding="0"
                           FontSize="10"
@@ -157,7 +157,7 @@
                           Content="📥"
                           Width="26" Height="24"
                           Margin="4,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="#3d444d"
                           Padding="0"
                           FontSize="10"
@@ -190,7 +190,7 @@
                   <Button x:Name="DeleteSelectedBtn"
                           Content="🗑"
                           Width="26" Height="26"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="#cc3333"
                           Padding="0"
                           FontSize="10"
@@ -201,7 +201,7 @@
                           Content="☑"
                           Width="26" Height="26"
                           Margin="6,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Padding="0"
                           FontSize="12"
                           ToolTip.Tip="Select Mode"
@@ -209,7 +209,7 @@
                   <Button Content="⬆"
                           Width="26" Height="26"
                           Margin="6,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Padding="0"
                           FontSize="12"
                           ToolTip.Tip="Check Updates"
@@ -217,14 +217,14 @@
                   <Button Content="↻"
                           Width="26" Height="26"
                           Margin="6,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Padding="0"
                           FontSize="12"
                           Click="RefreshInstalled_Click"/>
                   <Button Content="📁"
                           Width="26" Height="26"
                           Margin="6,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Padding="0"
                           FontSize="10"
                           Click="OpenFolder_Click"/>
@@ -298,13 +298,13 @@
                             Margin="0,0,0,6"
                             Cursor="Hand"
                             Tag="{Binding}"
-                            PointerPressed="InstalledMod_PointerPressed">
+                            PointerPressed="InstalledMod_RightClick">
                       <Border.ContextMenu>
-                        <ContextMenu Style="{StaticResource ModernContextMenu}"
+                        <ContextMenu Theme="{StaticResource ModernContextMenu}"
                                      Opened="ModContextMenu_Opened">
                           <MenuItem x:Name="AddTagMenuItem"
                                     Header="Add Tag"
-                                    Style="{StaticResource ModernMenuItem}"
+                                    Theme="{StaticResource ModernMenuItem}"
                                     Tag="{Binding}">
                                 <MenuItem.Icon>
                                     <TextBlock Text="🏷" FontSize="12"/>
@@ -312,7 +312,7 @@
                             </MenuItem>
                           <MenuItem x:Name="RemoveTagMenuItem"
                                     Header="Remove Tag"
-                                    Style="{StaticResource ModernMenuItem}"
+                                    Theme="{StaticResource ModernMenuItem}"
                                     Tag="{Binding}">
                                 <MenuItem.Icon>
                                     <TextBlock Text="✕" FontSize="10"/>
@@ -320,7 +320,7 @@
                             </MenuItem>
                           <Separator/>
                           <MenuItem Header="Create New Tag..."
-                                    Style="{StaticResource ModernMenuItem}"
+                                    Theme="{StaticResource ModernMenuItem}"
                                     Tag="{Binding}"
                                     Click="CreateNewTag_Click">
                                 <MenuItem.Icon>
@@ -377,7 +377,7 @@
                         <Button Grid.Column="3"
                                 Content="⬆"
                                 Width="24" Height="24"
-                                Style="{StaticResource ModernButton}"
+                                Theme="{StaticResource ModernButton}"
                                 Background="{StaticResource AccentBrush}"
                                 Padding="0"
                                 FontSize="10"
@@ -390,7 +390,7 @@
                         <Button Grid.Column="4"
                                 Content="✕"
                                 Width="24" Height="24"
-                                Style="{StaticResource ModernButton}"
+                                Theme="{StaticResource ModernButton}"
                                 Background="#cc3333"
                                 Padding="0"
                                 FontSize="10"
@@ -450,7 +450,7 @@
                       <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="SearchBox"
-                             Style="{StaticResource ModernTextBox}"
+                             Theme="{StaticResource ModernTextBox}"
                              Height="30"
                              FontSize="11"
                              KeyDown="SearchBox_KeyDown"/>
@@ -458,7 +458,7 @@
                             Content="🔍"
                             Width="30" Height="30"
                             Margin="6,0,0,0"
-                            Style="{StaticResource ModernButton}"
+                            Theme="{StaticResource ModernButton}"
                             Padding="0"
                             FontSize="11"
                             Click="Search_Click"/>
@@ -467,14 +467,14 @@
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,8,0,0">
                   <ComboBox x:Name="CategoryFilter"
-                            Style="{StaticResource ModernComboBox}"
+                            Theme="{StaticResource ModernComboBox}"
                             Width="110"
                             Height="28"
                             Padding="8,4"
                             FontSize="10"
                             SelectionChanged="CategoryFilter_SelectionChanged"/>
                   <ComboBox x:Name="GameVersionFilter"
-                            Style="{StaticResource ModernComboBox}"
+                            Theme="{StaticResource ModernComboBox}"
                             Width="100"
                             Height="28"
                             Padding="8,4"
@@ -485,7 +485,7 @@
                           Content="✕"
                           Width="28" Height="28"
                           Margin="6,0,0,0"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="#3d444d"
                           Padding="0"
                           FontSize="10"
@@ -493,7 +493,7 @@
                           Click="ClearFilters_Click"/>
                   <Border Width="1" Height="20" Background="#3d444d" Margin="10,0"/>
                   <ComboBox x:Name="SortDropdown"
-                            Style="{StaticResource ModernComboBox}"
+                            Theme="{StaticResource ModernComboBox}"
                             Width="120"
                             Height="28"
                             Padding="8,4"
@@ -560,7 +560,7 @@
                           <Button Grid.Column="2"
                                   Content="⬇"
                                   Width="32" Height="32"
-                                  Style="{StaticResource ModernButton}"
+                                  Theme="{StaticResource ModernButton}"
                                   Padding="0"
                                   FontSize="14"
                                   VerticalAlignment="Center"
@@ -611,7 +611,7 @@
                   <Button x:Name="PrevPageBtn"
                           Content="◀"
                           Width="32" Height="28"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="{StaticResource CardBackgroundBrush}"
                           Padding="0"
                           FontSize="10"
@@ -626,7 +626,7 @@
                   <Button x:Name="NextPageBtn"
                           Content="▶"
                           Width="32" Height="28"
-                          Style="{StaticResource ModernButton}"
+                          Theme="{StaticResource ModernButton}"
                           Background="{StaticResource CardBackgroundBrush}"
                           Padding="0"
                           FontSize="10"
@@ -656,7 +656,7 @@
                        Foreground="{StaticResource TextSecondaryBrush}"
                        VerticalAlignment="Center"/>
             <ProgressBar x:Name="ProgressBar"
-                         Style="{StaticResource ModernProgressBar}"
+                         Theme="{StaticResource ModernProgressBar}"
                          Value="0"
                          Maximum="100"
                          IsVisible="False"

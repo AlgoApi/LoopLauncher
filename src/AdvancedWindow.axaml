@@ -1,4 +1,3 @@
-<!-- AdvancedWindow.axaml -->
 <Window x:Class="LoopLauncher.AdvancedWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -40,7 +39,7 @@
                      Margin="12,0,0,0"/>
           <Button x:Name="CloseButton"
                   Content="✕"
-                  Style="{StaticResource CloseButton}"
+                  Theme="{StaticResource CloseButton}"
                   HorizontalAlignment="Right"
                   Click="CloseButton_Click"/>
         </Grid>
@@ -60,7 +59,7 @@
                      Foreground="{StaticResource TextSecondaryBrush}"
                      Margin="0,0,0,4"/>
           <TextBox x:Name="GameArgsTextBox"
-                   Style="{StaticResource ModernTextBox}"
+                   Theme="{StaticResource ModernTextBox}"
                    FontSize="10"
                    TextWrapping="Wrap"
                    AcceptsReturn="True"
@@ -71,7 +70,7 @@
                      Foreground="{StaticResource TextSecondaryBrush}"
                      Margin="0,3,0,4"/>
           <Button x:Name="ResetGameArgsBtn"
-                  Style="{StaticResource ModernButton}"
+                  Theme="{StaticResource ModernButton}"
                   Background="{StaticResource CardBackgroundBrush}"
                   Padding="8,5"
                   FontSize="9"
@@ -90,7 +89,7 @@
                      Foreground="{StaticResource TextSecondaryBrush}"
                      Margin="0,0,0,4"/>
           <TextBox x:Name="ServerArgsTextBox"
-                   Style="{StaticResource ModernTextBox}"
+                   Theme="{StaticResource ModernTextBox}"
                    FontSize="10"
                    TextWrapping="Wrap"
                    AcceptsReturn="True"
@@ -102,7 +101,7 @@
                      Margin="0,3,0,4"/>
           <StackPanel Orientation="Horizontal" Spacing="6">
             <Button x:Name="ResetServerArgsBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="{StaticResource CardBackgroundBrush}"
                     Padding="8,5"
                     FontSize="9"
@@ -110,7 +109,7 @@
               <TextBlock x:Name="ResetServerArgsBtnText" Text="↩ Reset to default"/>
             </Button>
             <Button x:Name="SaveServerArgsBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Padding="8,5"
                     FontSize="9"
                     Click="SaveServerArgsButton_Click">
@@ -128,12 +127,13 @@
                      Foreground="{StaticResource TextSecondaryBrush}"
                      Margin="0,0,0,8"/>
 
-          <WrapPanel ItemWidth="120" ItemHeight="38" Spacing="6">
+          <WrapPanel ItemWidth="120" ItemHeight="38">
             <Button x:Name="OpenGameFolderBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="{StaticResource CardBackgroundBrush}"
                     Padding="10,6"
                     FontSize="10"
+                    Margin="3"
                     Click="OpenGameFolderButton_Click">
               <StackPanel Orientation="Horizontal" Spacing="4">
                 <TextBlock Text="🎮"/>
@@ -142,10 +142,11 @@
             </Button>
 
             <Button x:Name="OpenServerFolderBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="{StaticResource CardBackgroundBrush}"
                     Padding="10,6"
                     FontSize="10"
+                    Margin="3"
                     Click="OpenServerFolderButton_Click">
               <StackPanel Orientation="Horizontal" Spacing="4">
                 <TextBlock Text="🖥"/>
@@ -154,9 +155,10 @@
             </Button>
 
             <Button x:Name="OpenUserDataFolderBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="{StaticResource CardBackgroundBrush}"
                     Padding="10,6"
+                    Margin="3"
                     FontSize="10"
                     Click="OpenUserDataFolderButton_Click">
               <StackPanel Orientation="Horizontal" Spacing="4">
@@ -166,10 +168,11 @@
             </Button>
 
             <Button x:Name="OpenModsFolderBtn"
-                    Style="{StaticResource ModernButton}"
+                    Theme="{StaticResource ModernButton}"
                     Background="{StaticResource CardBackgroundBrush}"
                     Padding="10,6"
                     FontSize="10"
+                    Margin="3"
                     Click="OpenModsFolderButton_Click">
               <StackPanel Orientation="Horizontal" Spacing="4">
                 <TextBlock Text="📦"/>
@@ -189,14 +192,14 @@
                   Spacing="6">
         <Button x:Name="CancelBtn"
                 Content="Cancel"
-                Style="{StaticResource ModernButton}"
+                Theme="{StaticResource ModernButton}"
                 Background="{StaticResource CardBackgroundBrush}"
                 Padding="10,0"
                 FontSize="11"
                 Click="CancelButton_Click"/>
         <Button x:Name="SaveBtn"
                 Content="Save"
-                Style="{StaticResource ModernButton}"
+                Theme="{StaticResource ModernButton}"
                 Padding="10,0"
                 FontSize="11"
                 Click="SaveButton_Click"/>

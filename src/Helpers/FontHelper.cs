@@ -71,7 +71,17 @@ namespace LoopLauncher.Helpers
                     ExtractFont("inter_bold.ttf");
 
                     // Создаём FontFamily для Cinzel
-                    CinzelFont = new FontFamily($"file://{_fontDir.Replace("\\", "/")}/#Cinzel(RUS BY LYAJKA)");
+                    string cinzelPath = Path.Combine(_fontDir, "cinzel_regular.ttf");
+                    if (File.Exists(cinzelPath))
+                    {
+                        var folderUri = new Uri(cinzelPath);
+                        
+                        CurrentFont = new FontFamily(folderUri, "Cinzel(RUS BY LYAJKA)");
+                    }
+                    else
+                    {
+                        CurrentFont = new FontFamily("Segoe UI");
+                    }
                 }
                 catch
                 {
@@ -88,24 +98,37 @@ namespace LoopLauncher.Helpers
             
             try
             {
-                // Специальная обработка для встроенных шрифтов
                 if (fontName == "Inter" && _fontDir != null)
                 {
-                    CurrentFont = new FontFamily(new Uri(_fontDir + "/"), "./#Inter");
+                    string fontPath = Path.Combine(_fontDir, "inter_regular.ttf");
+                    if (File.Exists(fontPath))
+                    {
+                        // Важно: Uri должен указывать на ФАЙЛ, а строка — на ИМЯ семейства
+                        var fileUri = new Uri(fontPath);
+                        CurrentFont = new FontFamily(fileUri, "Inter");
+                    }
+                    else { throw new FileNotFoundException(); }
                 }
                 else if (fontName == "Cinzel")
                 {
-                    CurrentFont = CinzelFont ?? new FontFamily("Segoe UI");
+                    string fontPath = Path.Combine(_fontDir, "cinzel_regular.ttf");
+                    if (File.Exists(fontPath))
+                    {
+                        var fileUri = new Uri(fontPath);
+                        // Если имя со скобками не сработает, попробуйте просто "Cinzel"
+                        CurrentFont = new FontFamily(fileUri, "Cinzel(RUS BY LYAJKA)");
+                    }
+                    else { throw new FileNotFoundException(); }
                 }
                 else
                 {
-                    // Любой системный шрифт
                     CurrentFont = new FontFamily(fontName);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                CurrentFont = new FontFamily("Segoe UI");
+                System.Diagnostics.Debug.WriteLine($"Ошибка шрифта: {ex.Message}");
+                CurrentFont = new FontFamily("Default"); // Системный шрифт по умолчанию
             }
         }
 
@@ -119,7 +142,7 @@ namespace LoopLauncher.Helpers
             {
                 try
                 {
-                    var uri = new Uri($"avares://LoopLauncher/Fonts/{fontName}");
+                    var uri = new Uri($"avares://src/Fonts/{fontName}");
                     using var stream = AssetLoader.Open(uri);
                     using var fileStream = File.Create(fontPath);
                     stream.CopyTo(fileStream);

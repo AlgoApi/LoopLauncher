@@ -46,10 +46,10 @@
           <StackPanel Orientation="Horizontal"
                       HorizontalAlignment="Right">
             <Button Content="─"
-                    Style="{StaticResource WindowControlButton}"
+                    Theme="{StaticResource WindowControlButton}"
                     Click="MinimizeButton_Click"/>
             <Button Content="✕"
-                    Style="{StaticResource CloseButton}"
+                    Theme="{StaticResource CloseButton}"
                     Click="CloseButton_Click"/>
           </StackPanel>
         </Grid>
@@ -87,7 +87,7 @@
                           CornerRadius="8"
                           Margin="0,0,0,10"
                           Cursor="Hand"
-                          PointerPressed="NewsItem_PointerPressed">
+                          PointerPressed="NewsItem_Click">
                     <Grid>
                       <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="140"/>
@@ -140,7 +140,6 @@
             <!-- Logo -->
             <Grid Grid.Row="0" Margin="0,0,0,20" HorizontalAlignment="Center">
               <Image x:Name="LogoImage"
-                     Source="https://hytale.com/static/images/logo.png"
                      Height="92"
                      Stretch="Uniform"
                      HorizontalAlignment="Center"
@@ -151,7 +150,7 @@
                          FontWeight="Bold"
                          Foreground="{StaticResource AccentBrush}"
                          HorizontalAlignment="Center"
-                         Visibility="Collapsed"/>
+                         IsVisible="False"/>
             </Grid>
 
             <!-- Form -->
@@ -165,7 +164,7 @@
                          Foreground="{StaticResource TextSecondaryBrush}"
                          Margin="0,0,0,6"/>
               <TextBox x:Name="NicknameTextBox"
-                       Style="{StaticResource ModernTextBox}"
+                       Theme="{StaticResource ModernTextBox}"
                        Height="38"
                        Margin="0,0,0,15"/>
 
@@ -182,8 +181,8 @@
                   <ColumnDefinition Width="36"/>
                 </Grid.ColumnDefinitions>
                 <ComboBox x:Name="VersionComboBox"
-                          Style="{StaticResource ModernComboBox}"
-                          ItemContainerStyle="{StaticResource ModernComboBoxItem}"
+                          Theme="{StaticResource ModernComboBox}"
+                          ItemContainerTheme="{StaticResource ModernComboBoxItem}"
                           SelectedItem="{Binding SelectedVersion, Mode=TwoWay}"
                           Height="36"
                           IsEnabled="False"
@@ -194,7 +193,7 @@
                         Width="28"
                         Height="28"
                         Margin="8,0,0,0"
-                        Style="{StaticResource ModernButton}"
+                        Theme="{StaticResource ModernButton}"
                         Padding="0"
                         FontSize="14"
                         Click="RefreshVersions_Click"/>
@@ -208,8 +207,8 @@
                          Foreground="{StaticResource TextSecondaryBrush}"
                          Margin="0,0,0,6"/>
               <ComboBox x:Name="BranchComboBox"
-                        Style="{StaticResource ModernComboBox}"
-                        ItemContainerStyle="{StaticResource ModernComboBoxItem}"
+                        Theme="{StaticResource ModernComboBox}"
+                        ItemContainerTheme="{StaticResource ModernComboBoxItem}"
                         SelectedIndex="1"
                         Height="36"
                         SelectionChanged="BranchComboBox_SelectionChanged"
@@ -233,8 +232,8 @@
                   <ColumnDefinition Width="36"/>
                 </Grid.ColumnDefinitions>
                 <ComboBox x:Name="ModpackComboBox"
-                          Style="{StaticResource ModernComboBox}"
-                          ItemContainerStyle="{StaticResource ModernComboBoxItem}"
+                          Theme="{StaticResource ModernComboBox}"
+                          ItemContainerTheme="{StaticResource ModernComboBoxItem}"
                           SelectedItem="{Binding SelectedModpack, Mode=TwoWay}"
                           Height="36"
                           SelectionChanged="ModpackComboBox_SelectionChanged"/>
@@ -244,7 +243,7 @@
                         Width="28"
                         Height="28"
                         Margin="8,0,0,0"
-                        Style="{StaticResource ModernButton}"
+                        Theme="{StaticResource ModernButton}"
                         Padding="0"
                         FontSize="14"
                         Click="OpenMods_Click"
@@ -261,7 +260,7 @@
                            Foreground="{StaticResource TextSecondaryBrush}"
                            Margin="0,0,0,6"/>
                 <ProgressBar x:Name="DownloadProgress"
-                             Style="{StaticResource ModernProgressBar}"
+                             Theme="{StaticResource ModernProgressBar}"
                              Value="0"
                              Maximum="100"/>
                 <TextBlock x:Name="ProgressPercent"
@@ -287,7 +286,7 @@
                 <Button x:Name="PlayButton"
                         Grid.Column="0"
                         Content="PLAY"
-                        Style="{StaticResource ModernButton}"
+                        Theme="{StaticResource ModernButton}"
                         Click="PlayButton_Click"
                         FontSize="14"
                         FontWeight="Bold"
@@ -296,7 +295,7 @@
                 <Button x:Name="ReinstallButton"
                         Grid.Column="1"
                         Content="🔄"
-                        Style="{StaticResource ModernButton}"
+                        Theme="{StaticResource ModernButton}"
                         Background="{StaticResource CardBackgroundBrush}"
                         Click="ReinstallButton_Click"
                         FontSize="14"
@@ -310,7 +309,7 @@
 
               <!-- Start Server Button -->
               <Button x:Name="StartServerButton"
-                      Style="{StaticResource ModernButton}"
+                      Theme="{StaticResource ModernButton}"
                       Background="{StaticResource CardBackgroundBrush}"
                       Click="StartServerButton_Click"
                       FontSize="11"
@@ -328,8 +327,8 @@
             <!-- Language & Settings -->
             <Grid Grid.Row="2" Margin="0,15,0,0">
               <ComboBox x:Name="LanguageComboBox"
-                        Style="{StaticResource ModernComboBox}"
-                        ItemContainerStyle="{StaticResource ModernComboBoxItem}"
+                        Theme="{StaticResource ModernComboBox}"
+                        ItemContainerTheme="{StaticResource ModernComboBoxItem}"
                         HorizontalAlignment="Left"
                         Width="72"
                         Height="32"
@@ -346,17 +345,25 @@
                            Foreground="{StaticResource TextSecondaryBrush}"
                            Cursor="Hand"
                            Margin="0,0,15,0"
-                           PointerPressed="Mods_Click"
-                           PointerEnter="HoverText_PointerEnter"
-                           PointerLeave="HoverText_PointerLeave"/>
+                           PointerPressed="Mods_Click"> 
+                  <TextBlock.Styles>
+                    <Style Selector="TextBlock:pointerover">
+                      <Setter Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+                    </Style>
+                  </TextBlock.Styles>
+                </TextBlock>
                 <TextBlock x:Name="SettingsLink"
                            Text="⚙ Settings"
                            FontSize="11"
                            Foreground="{StaticResource TextSecondaryBrush}"
                            Cursor="Hand"
-                           PointerPressed="Settings_Click"
-                           PointerEnter="HoverText_PointerEnter"
-                           PointerLeave="HoverText_PointerLeave"/>
+                           PointerPressed="Settings_Click"> 
+                  <TextBlock.Styles>
+                    <Style Selector="TextBlock:pointerover">
+                      <Setter Property="Foreground" Value="{DynamicResource AccentBrush}"/>
+                    </Style>
+                  </TextBlock.Styles>
+                </TextBlock>
               </StackPanel>
             </Grid>
           </Grid>

@@ -40,7 +40,7 @@
           </StackPanel>
 
           <Button Content="✕"
-                  Style="{StaticResource CloseButton}"
+                  Theme="{StaticResource CloseButton}"
                   HorizontalAlignment="Right"
                   Click="CancelButton_Click"/>
         </Grid>
@@ -60,7 +60,7 @@
                      Foreground="{StaticResource TextSecondaryBrush}"
                      Margin="0,0,0,6"/>
           <TextBox x:Name="ModpackNameBox"
-                   Style="{StaticResource ModernTextBox}"
+                   Theme="{StaticResource ModernTextBox}"
                    Height="36"
                    FontSize="12"
                    MaxLength="50"/>
@@ -140,14 +140,14 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
           <Button x:Name="CancelBtn"
                   Content="Cancel"
-                  Style="{StaticResource ModernButton}"
+                  Theme="{StaticResource ModernButton}"
                   Background="#3d444d"
                   Padding="20,10"
                   FontSize="12"
                   Click="CancelButton_Click"/>
           <Button x:Name="CreateBtn"
                   Content="Create"
-                  Style="{StaticResource ModernButton}"
+                  Theme="{StaticResource ModernButton}"
                   Padding="20,10"
                   FontSize="12"
                   Click="CreateButton_Click"/>

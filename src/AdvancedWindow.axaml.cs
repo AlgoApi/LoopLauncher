@@ -8,6 +8,7 @@ using LoopLauncher.Helpers;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
 using LoopLauncher.Services;
+using Avalonia.Input;
 
 namespace LoopLauncher
 {
@@ -149,6 +150,14 @@ namespace LoopLauncher
         private void ResetServerArgsButton_Click(object sender, RoutedEventArgs e)
         {
             ServerArgsTextBox.Text = DefaultServerArgs;
+        }
+
+        public void TitleBar_PointerPressed(object sender, PointerPressedEventArgs e)
+        {
+            if (e.GetCurrentPoint(this).Properties.PointerUpdateKind == PointerUpdateKind.LeftButtonPressed)
+            {
+                this.BeginMoveDrag(e);
+            }
         }
 
         private void SaveServerArgsButton_Click(object sender, RoutedEventArgs e)
